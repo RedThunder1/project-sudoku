@@ -6,4 +6,16 @@
 
 % Your implementation please...
 
+row(1..4).
+col(1..4).
+num(1..4).
+
+sudoku(X, Y, N) : num(N) :- row(X), col(Y).
+
+:- initial(X, Y, N), not sudoku(X, Y, N).
+
+:- sudoku(X, COL1, N), sudoku(X, COL2, N), COL1 != COL2.
+
+:- sudoku(ROW1, Y, N), sudoku(ROW2, Y, N), ROW1 != ROW2.
+
 #show sudoku/3.
